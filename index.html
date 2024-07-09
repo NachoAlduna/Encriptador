@@ -4,72 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encriptación/Desencriptación</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    input,
-    button {
-      margin: 10px 0;
-      padding: 5px;
-    }
-
-    #resultado {
-      margin-top: 20px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      background-color: #f0f0f0;
-    }
-  </style>
+  <title>Encriptador</title>
 </head>
+<link rel="stylesheet" href="assets/css/style.css">
 
 <body>
-  <h1>Encriptación/Desencriptación</h1>
-  <input type="text" id="mensaje" placeholder="Ingrese el mensaje">
-  <br>
-  <button onclick="encriptar()">Encriptar</button>
-  <button onclick="desencriptar()">Desencriptar</button>
-  <div id="resultado"></div>
+  <header>
+    <img class="logo" src="assets/img/Logo@2x.svg" alt="logoalura">
+  </header>
+  <div class="container">
+    <div class="input-section">
+      <div class=logo></div>
+      <textarea id="input-texto" placeholder="Ingrese el texto aquí"></textarea>
+      <div class="info">Solo letras minúsculas y sin acentos</div>
+      <div class="buttons">
+        <button class="encrypt" onclick="procesarTexto('encrypt')">Encriptar</button>
+        <button class="decrypt" onclick="procesarTexto('decrypt')">Desencriptar</button>
+      </div>
+    </div>
+    <div class="output-section">
+      <div class="output-section">
+        <div id="result-container">
 
-  <script>
-    const claves = {
-      'e': 'enter',
-      'i': 'imes',
-      'a': 'ai',
-      'o': 'ober',
-      'u': 'ufat'
-    };
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/script.js"></script>
 
-    function encriptar() {
-      const mensaje = document.getElementById('mensaje').value.toLowerCase();
-      let mensajeEncriptado = '';
-
-      for (let letra of mensaje) {
-        mensajeEncriptado += claves[letra] || letra;
-      }
-
-      mostrarResultado(mensajeEncriptado);
-    }
-
-    function desencriptar() {
-      let mensaje = document.getElementById('mensaje').value.toLowerCase();
-
-      for (let [letra, clave] of Object.entries(claves)) {
-        mensaje = mensaje.split(clave).join(letra);
-      }
-
-      mostrarResultado(mensaje);
-    }
-
-    function mostrarResultado(mensaje) {
-      document.getElementById('resultado').textContent = mensaje;
-    }
-  </script>
 </body>
 
 </html>
